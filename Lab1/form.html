@@ -11,7 +11,8 @@
   </style>
 </head>
 <body>
-<h1>Запис на медконсультацію</h1>
+<header><h1>Запис на медконсультацію</h1></header>
+<main>
 <fieldset>
   <legend>Запис</legend>
   <form action="/search" method="POST">
@@ -20,10 +21,10 @@
 <input type="text" id="name" name="name" required></label>
 
  <label for="date_birth">Дата народження
-<input type="date"     name="date_birth"  required></label>
+<input type="date"  id="date_birth"   name="date_birth"  required></label>
 
 <label for="phone">Телефон (+380...)
-<input type="tel" pattern="\+380\d{9}" placeholder="+380\d{9}" required></label>
+<input type="tel"  id="phone" pattern="\+380\d{9}" placeholder="+380\d{9}" required></label>
   
   <label for="email">Електронна пошта
 <input type="email" id="email" name="email" required></label>
@@ -38,7 +39,7 @@
 </label>
   
   <label for="date_wanted">Бажана дата
-<input type="date" min="16-05-2026" min="16-06-2026" name="date_wanted" required></label>
+<input type="date"  id="date_wanted" min="2026-05-16"name="date_wanted" required></label>
 
 <label for="time_wanted">Бажаний час
     <select name="time_wanted">
@@ -52,6 +53,6 @@
 <input type="checkbox" name="agreement" required></label>
   <button type="submit">Записатись</button>
 </form>
-</fieldset>
+</fieldset></main>
 </body>
 </html>
