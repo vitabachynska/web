@@ -1,0 +1,257 @@
+/*
+  legacy.css — стилі лендингу з hardcoded значеннями.
+  Завдання 3: рефакторинг через CSS-змінні + темна тема.
+
+  Студент має:
+  1. Виділити дизайн-токени в :root (≥ 10 змінних).
+  2. Замінити hardcoded значення на var(--name).
+  3. Додати [data-theme="dark"] перевизначення для темної теми.
+  4. Перевірити, що нічого не зламалось у світлій темі.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+:root {
+  --color-primary: #2050a0;
+  --color-primary-dark: #173e7c;
+  --color-bg-main: #ffffff;
+  --color-bg-alt: #f4f6f8;
+  --color-text-base: #1a1a1a;
+  --color-text-muted: #555555;
+  --color-text-footer: #636262;
+
+  --space-unit: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+
+  --font-size-main: 16px;
+  --font-size-hero: 36px;
+
+  --border-radius: 6px;
+}
+
+[data-theme="dark"] {
+  --color-primary: #4a86e8;
+  --color-primary-dark: #5c93ed;
+  --color-bg-main: #121212;
+  --color-bg-alt: #1e1e1e;
+  --color-text-base: #e0e0e0;
+  --color-text-muted: #333333;
+  --color-text-footer: #ffffff
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: var(--space-md);
+  line-height: 1.6;
+  color: var(--color-text-base);
+  background: var(--color-bg-main);
+}
+/* === Header === */
+.site-header {
+  background: var(--color-primary);
+  color: var(--color-bg-main);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid #1a3f80;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--color-bg-main);
+}
+
+.site-header nav a {
+  color: var(--color-bg-main);
+  text-decoration: none;
+  margin-left: var(--space-md);
+  font-size: 14px;
+}
+
+.site-header nav a:hover {
+  color: #ffcc44;
+}
+
+/* === Hero === */
+.hero {
+  background: var(--color-bg-alt);
+  padding: 64px var(--space-lg);
+  text-align: center;
+  color: var(--color-text-base);
+}
+
+.hero h2 {
+  font-size: var(--font-size-hero);
+  margin: 0 0 var(--font-size-main);
+  color: var(--color-primary);
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto var(--space-lg);
+  color: var(--color-text-muted);
+}
+
+.hero .cta {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--color-primary);
+  color: var(--color-bg-main);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--font-size-main);
+}
+
+.hero .cta:hover {
+  background: var(--color-primary-dark);
+}
+
+/* === Features === */
+.features {
+  padding: 48px var(--space-lg);
+  background: var(--color-bg-main);
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 28px;
+  margin: 0 0 var(--space-lg);
+  color: var(--color-primary);
+}
+
+.features .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: var(--color-bg-main);
+  border: 1px solid #e1e4e8;
+  border-radius: var(--space-unit);
+  padding: 24px;
+  color: var(--color-text-base);
+}
+
+.feature-card h3 {
+  margin: 0 0 12px;
+  color: var(--color-primary);
+  font-size: 18px;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+/* === Alert === */
+.alert {
+  padding: 12px var(--space-md);
+  background: #fff7e6;
+  color: #b85c00;
+  border-left: 4px solid #b85c00;
+  border-radius: 4px;
+  margin: var(--space-md) 0;
+  font-size: 14px;
+}
+
+.alert-info {
+  background: #e8f0fe;
+  color: var(--color-primary);
+  border-left-color: var(--color-primary);
+}
+
+.alert-success {
+  background: #e6f7eb;
+  color: #2a8a4a;
+  border-left-color: #2a8a4a;
+}
+
+/* === Form === */
+.contact-form {
+  max-width: 480px;
+  margin: 48px auto;
+  padding: var(--space-lg);
+  background: var(--color-bg-alt);
+  border-radius: var(--space-unit);
+}
+
+.contact-form h2 {
+  margin: 0 0 24px;
+  color: var(--color-primary);
+  font-size: 24px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--color-text-base);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e1e4e8;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  background: var(--color-bg-main);
+  color: var(--color-text-base);
+  margin-bottom: var(--space-md);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+.contact-form button {
+  background: var(--color-primary);
+  color: var(--color-bg-main);
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--space-md);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: var(--color-primary-dark);
+}
+
+/* === Footer === */
+.site-footer {
+  background: var(--color-text-base);
+  color: #cccccc;
+  padding: var(--space-lg);
+  text-align: center;
+  font-size: 14px;
+}
+.site-footer p{
+	color: var(--color-text-footer);
+}
+
+.site-footer a {
+  color: var(--color-bg-main);
+  text-decoration: none;
+  margin: 0 var(--space-unit);
+}
+
+.site-footer a:hover {
+  color: #ffcc44;
+}
